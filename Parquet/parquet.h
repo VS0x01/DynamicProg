@@ -18,6 +18,8 @@
 #include "cspin.h"
 #include <Vcl.Grids.hpp>
 #include <Vcl.Menus.hpp>
+#include <Vcl.Dialogs.hpp>
+#include <Vcl.ExtDlgs.hpp>
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -41,7 +43,10 @@ __published:	// IDE-managed Components
 	TMenuItem *About1;
 	TMenuItem *Window1;
 	TMenuItem *Close1;
-	TPanel *ŒÔËÒ;
+	TPanel *–û–ø–∏—Å;
+	TCheckBox *Advanced;
+	TMenuItem *Print1;
+	TPrinterSetupDialog *PrinterSetupDialog1;
 	void __fastcall GoClick(TObject *Sender);
 	void __fastcall RoomSelectCell(TObject *Sender, int ACol, int ARow, bool &CanSelect);
 	void __fastcall WriteAllClick(TObject *Sender);
@@ -49,6 +54,10 @@ __published:	// IDE-managed Components
 	void __fastcall Close1Click(TObject *Sender);
 	void __fastcall About1Click(TObject *Sender);
 	void __fastcall HowtoUseHelp1Click(TObject *Sender);
+	void __fastcall AdvancedClick(TObject *Sender);
+	void __fastcall ResClick(TObject *Sender);
+	void __fastcall ResultMouseLeave(TObject *Sender);
+	void __fastcall Print1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
