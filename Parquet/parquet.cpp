@@ -86,11 +86,11 @@ void __fastcall TForm1::RoomSelectCell(TObject * Sender, int ACol, int ARow,
 
 void __fastcall TForm1::WriteAllClick(TObject *Sender)
 {
-	m_value->Value = 20;
-	for (int i = 1; i <= 8; i++) {
+	m_value->Value = (Advanced->Checked && m_value->Value > 20)?  m_value->Value : 20;
+	for (int i = 1; i <= n_value->MaxValue; i++) {
 		n_value->Value = i;
 		Go->Click();
-	}	
+	}
 }
 //---------------------------------------------------------------------------
 
@@ -123,3 +123,39 @@ void __fastcall TForm1::HowtoUseHelp1Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+
+
+void __fastcall TForm1::AdvancedClick(TObject *Sender)
+{
+	if(Advanced->Checked) {
+		m_value->MaxValue = 0;
+		n_value->MaxValue = 10;
+	} else {
+		m_value->Value = 20;
+		n_value->Value = 8;
+		m_value->MaxValue = 20;
+		n_value->MaxValue = 8;
+    }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::ResClick(TObject *Sender)
+{
+	Result->Hint = ResultValue->Caption;
+	Result->ShowHint = true;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::ResultMouseLeave(TObject *Sender)
+{
+	Result->ShowHint = false;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Print1Click(TObject *Sender)
+{
+	if(PrinterSetupDialog1->Execute()) {
+		Form1->Print();
+	}
+}
+//---------------------------------------------------------------------------
