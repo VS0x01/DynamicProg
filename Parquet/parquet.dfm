@@ -1,8 +1,8 @@
-﻿object Form1: TForm1
+object Form1: TForm1
   Left = 0
   Top = 0
-  Width = 1350
-  Height = 744
+  Width = 1340
+  Height = 599
   AutoScroll = True
   Caption = #1047#1072#1076#1072#1095#1072' '#1087#1088#1086' '#1087#1072#1088#1082#1077#1090
   Color = clBtnFace
@@ -57,7 +57,7 @@
   end
   object Room: TStringGrid
     Left = 210
-    Top = 24
+    Top = 68
     Width = 1105
     Height = 444
     ColCount = 20
@@ -83,12 +83,14 @@
     Width = 185
     Height = 41
     TabOrder = 2
+    OnClick = ResClick
     object Result: TLabel
       Left = 16
       Top = 12
       Width = 37
       Height = 13
       Caption = 'Result: '
+      OnMouseLeave = ResultMouseLeave
     end
     object ResultValue: TLabel
       Left = 53
@@ -133,15 +135,28 @@
   end
   object Опис: TPanel
     Left = 210
-    Top = 488
+    Top = 21
     Width = 351
     Height = 41
     Caption = #1050#1110#1083#1100#1082#1110#1089#1090#1100' '#1089#1087#1086#1089#1086#1073#1110#1074' '#1079#1072#1084#1086#1089#1090#1080#1090#1080' '#1082#1110#1084#1085#1072#1090#1091' MxN '#1096#1084#1072#1090#1082#1072#1084#1080' '#1087#1072#1088#1082#1077#1090#1091' 2'#1093'1'
     TabOrder = 4
   end
+  object Advanced: TCheckBox
+    Left = 19
+    Top = 1
+    Width = 206
+    Height = 17
+    Caption = #1044#1086#1079#1074#1086#1083#1080#1090#1080' '#1082#1110#1084#1085#1072#1090#1091' '#1073#1110#1083#1100#1096#1086#1075#1086' '#1088#1086#1079#1084#1110#1088#1091
+    TabOrder = 5
+    OnClick = AdvancedClick
+  end
   object MainMenu1: TMainMenu
     object Window1: TMenuItem
-      Caption = 'Window'
+      Caption = 'File'
+      object Print1: TMenuItem
+        Caption = 'Print'
+        OnClick = Print1Click
+      end
       object Close1: TMenuItem
         Caption = 'Close'
         OnClick = Close1Click
@@ -158,5 +173,9 @@
         OnClick = About1Click
       end
     end
+  end
+  object PrinterSetupDialog1: TPrinterSetupDialog
+    Left = 16
+    Top = 216
   end
 end
